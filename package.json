@@ -1,0 +1,38 @@
+{
+  "name": "@iswangh/commitlint-config",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "基于 @commitlint/config-conventional 的 Commitlint 配置，提供默认值和覆盖支持",
+  "license": "Apache-2.0",
+  "exports": {
+    ".": {
+      "types": "./index.ts",
+      "import": "./index.js"
+    }
+  },
+  "main": "./index.js",
+  "files": [
+    "README.md",
+    "configs",
+    "index.js",
+    "index.ts"
+  ],
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "prepublishOnly": "pnpm type-check"
+  },
+  "peerDependencies": {
+    "@commitlint/config-conventional": "^20.0.0"
+  },
+  "dependencies": {
+    "jiti": "^2.6.1"
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^20.0.0",
+    "@commitlint/types": "^20.0.0",
+    "typescript": "^5.9.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
