@@ -5,10 +5,12 @@
  */
 
 import type { UserConfig } from '@commitlint/types'
-import { RULE_LEVEL, COMMIT_TYPES } from '../types'
+import { COMMIT_TYPES, RULE_LEVEL } from '../constants'
 
 /**
  * 默认规则配置
+ *
+ * 包含提交类型、作用域、主题、头部、Body 和 Footer 等各个方面的规则配置
  */
 export const defaultRules: UserConfig['rules'] = {
   // ========== 提交类型规则 ==========
@@ -16,7 +18,7 @@ export const defaultRules: UserConfig['rules'] = {
   'type-enum': [
     RULE_LEVEL.ERROR,
     'always',
-    COMMIT_TYPES,
+    [...COMMIT_TYPES],
   ],
   /** 提交类型大小写 */
   'type-case': [RULE_LEVEL.ERROR, 'always', 'lowercase'],
@@ -48,9 +50,10 @@ export const defaultRules: UserConfig['rules'] = {
 
 /**
  * 中文冒号检查规则
+ *
+ * 禁止在提交信息中使用中文冒号，强制使用英文冒号以符合 Conventional Commits 规范
  */
 export const chineseColonRule: UserConfig['rules'] = {
   /** 禁止使用中文冒号（Conventional Commits 格式要求使用英文冒号） */
   'no-chinese-colon': [RULE_LEVEL.ERROR, 'always'],
 }
-

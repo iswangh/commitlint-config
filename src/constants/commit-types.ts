@@ -1,19 +1,13 @@
-import type { UserConfig } from '@commitlint/types'
-
 /**
- * 规则级别常量
+ * @file 提交类型枚举
+ *
+ * 定义符合 Conventional Commits 规范的提交类型列表
  */
-export const RULE_LEVEL = {
-  /** 禁用规则 */
-  DISABLED: 0,
-  /** 警告级别 */
-  WARNING: 1,
-  /** 错误级别 */
-  ERROR: 2,
-} as const
 
 /**
  * 提交类型枚举
+ *
+ * 定义符合 Conventional Commits 规范的提交类型列表
  */
 export const COMMIT_TYPES = [
   'feat', // 新功能
@@ -28,8 +22,3 @@ export const COMMIT_TYPES = [
   'chore', // 日常维护
   'revert', // 回滚操作
 ] as const
-
-/**
- * 提交类型
- */
-export type CommitType = (typeof COMMIT_TYPES)[number]

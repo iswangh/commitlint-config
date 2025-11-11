@@ -6,5 +6,7 @@
 
 /**
  * 默认继承的基础配置
+ *
+ * 基于 @commitlint/config-conventional 的标准配置
  */
 export const defaultExtends = '@commitlint/config-conventional'

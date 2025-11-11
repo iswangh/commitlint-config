@@ -3,7 +3,18 @@
   "type": "module",
   "version": "0.1.0",
   "description": "基于 @commitlint/config-conventional 的 Commitlint 配置，提供默认值和覆盖支持",
+  "author": "iswangh <https://gitee.com/iswangh>",
   "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/iswangh/commitlint-config.git"
+  },
+  "keywords": [
+    "commitlint",
+    "commitlint-config",
+    "@commitlint/config-conventional",
+    "conventional-commits"
+  ],
   "exports": {
     ".": {
       "types": "./index.ts",
@@ -13,13 +24,21 @@
   "main": "./index.js",
   "files": [
     "README.md",
-    "configs",
     "index.js",
-    "index.ts"
+    "index.ts",
+    "src"
   ],
   "scripts": {
+    "prepare": "husky",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "type-check": "tsc --noEmit",
-    "prepublishOnly": "pnpm type-check"
+    "check:branch": "node scripts/check-branch.js",
+    "prepublishOnly": "pnpm run lint && pnpm type-check",
+    "version": "git add -A",
+    "publish:major": "pnpm run check:branch && pnpm version major && pnpm publish",
+    "publish:minor": "pnpm run check:branch && pnpm version minor && pnpm publish",
+    "publish:patch": "pnpm run check:branch && pnpm version patch && pnpm publish"
   },
   "peerDependencies": {
     "@commitlint/config-conventional": "^20.0.0"
@@ -28,11 +47,20 @@
     "jiti": "^2.6.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
     "@commitlint/types": "^20.0.0",
+    "@iswangh/eslint-config": "^0.1.5",
+    "eslint": "^9.39.1",
+    "eslint-plugin-format": "^1.0.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.11",
     "typescript": "^5.9.2"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "volta": {
+    "node": "25.1.0"
   }
 }

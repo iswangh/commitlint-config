@@ -6,6 +6,5 @@
  */
 
 export * from './defaults'
-export * from './rules'
 export * from './plugins'
-
+export * from './rules'

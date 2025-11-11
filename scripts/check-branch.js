@@ -2,13 +2,20 @@
  * @file 检查 Git 分支脚本
  *
  * 确保只能在 main 或 master 分支执行发布操作
+ * 用于 prepublishOnly 钩子，防止在错误分支发布包
  */
 
 import { execSync } from 'node:child_process'
 import process from 'node:process'
 
+/**
+ * 允许发布的分支列表
+ */
 const ALLOWED_BRANCHES = ['main', 'master']
 
+/**
+ * 获取当前 Git 分支名称
+ */
 const currentBranch = execSync('git branch --show-current', { encoding: 'utf-8' }).trim()
 
 if (!ALLOWED_BRANCHES.includes(currentBranch)) {

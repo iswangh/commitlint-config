@@ -7,15 +7,16 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
-.DS_Store
-dist
-dist-ssr
-coverage
-*.local
 
-/cypress/videos/
-/cypress/screenshots/
+# Build outputs
+dist
+*.tsbuildinfo
+
+# Environment
+.DS_Store
+*.local
 
 # Editor directories and files
 .idea
@@ -25,30 +26,5 @@ coverage
 *.sln
 *.sw?
 
-*.tsbuildinfo
-
-test-results/
-playwright-report/
-
-# Auto import generated files
-.eslintrc-auto-import.json
-src/types/auto-imports.d.ts
-src/types/components.d.ts
-playground/types/auto-imports.d.ts
-playground/types/components.d.ts
-
-.vite-inspect/
-
 # ESLint cache
 .eslintcache
-
-# TypeScript build info
-node_modules/.tmp/
-
-# TypeScript Project References symlinks (auto-generated)
-packages/kit/form
-packages/kit/core
-
-# VitePress
-docs/.vitepress/dist
-docs/.vitepress/cache

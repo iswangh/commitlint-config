@@ -7,48 +7,38 @@
  * @see {@link https://www.conventionalcommits.org/zh-hans/v1.0.0/ Conventional Commits 规范}
  */
 
-import type { UserConfig } from '@commitlint/types'
-import { defaultExtends } from './configs/defaults'
-import { defaultPlugins } from './configs/plugins'
-import { chineseColonRule, defaultRules } from './configs/rules'
+import type { CommitlintConfigOptions } from './src'
+import { createConfig } from './src'
 
 /**
- * Commitlint 配置对象
+ * Commitlint 配置函数
  *
- * 基于 `@commitlint/config-conventional`，并添加自定义规则配置
- * 包含提交类型枚举、中文冒号检查等规则
+ * 支持传入配置选项来自定义配置，如果不传参数则返回默认配置。
+ * 用户传入的配置会覆盖默认配置，确保用户配置优先级最高。
  *
  * 使用方式：
  * ```typescript
- * import config from '@iswangh/commitlint-config'
+ * import iswangh from '@iswangh/commitlint-config'
  *
- * export default config
- * ```
+ * // 使用默认配置
+ * export default iswangh()
  *
- * 如需自定义，可以扩展配置：
- * ```typescript
- * import config from '@iswangh/commitlint-config'
- *
- * export default {
- *   ...config,
+ * // 自定义配置
+ * export default iswangh({
  *   rules: {
- *     ...config.rules,
  *     'header-max-length': [2, 'always', 80],
  *   },
- * }
+ * })
  * ```
+ *
+ * @param {CommitlintConfigOptions} [options] - 配置选项（可选）
+ * @returns {import('@commitlint/types').UserConfig} Commitlint 配置对象
  */
-const config: UserConfig = {
-  extends: defaultExtends,
-  rules: {
-    ...defaultRules,
-    ...chineseColonRule,
-  },
-  plugins: defaultPlugins,
+function iswangh(options?: CommitlintConfigOptions) {
+  return createConfig(options)
 }
 
-export default config
+export default iswangh
 
 // 导出类型和常量
-export * from './configs'
-export * from './types'
+export * from './src'
