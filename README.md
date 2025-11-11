@@ -314,4 +314,5 @@ echo "📝 提交信息: $(git log -1 --oneline)"
 
 - **许可证**：Apache-2.0
 - **版本**：0.1.0
-- **仓库**：[Gitee](https://gitee.com/iswangh/commitlint-config.git)
+- **主仓库**：[Gitee](https://gitee.com/iswangh/commitlint-config.git)
+- **镜像仓库**：[GitHub](https://github.com/iswangh/commitlint-config.git)（通过 Gitee 镜像仓库功能自动同步）
