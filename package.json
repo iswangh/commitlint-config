@@ -36,9 +36,9 @@
     "check:branch": "node scripts/check-branch.js",
     "prepublishOnly": "pnpm run lint && pnpm type-check",
     "version": "git add -A",
-    "publish:major": "pnpm run check:branch && pnpm version major && pnpm publish",
+    "publish:patch": "pnpm run check:branch && pnpm version patch && pnpm publish",
     "publish:minor": "pnpm run check:branch && pnpm version minor && pnpm publish",
-    "publish:patch": "pnpm run check:branch && pnpm version patch && pnpm publish"
+    "publish:major": "pnpm run check:branch && pnpm version major && pnpm publish"
   },
   "peerDependencies": {
     "@commitlint/config-conventional": "^20.0.0"

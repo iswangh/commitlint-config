@@ -28,3 +28,6 @@ dist
 
 # ESLint cache
 .eslintcache
+
+# npm/pnpm configuration (may contain sensitive tokens)
+.npmrc
