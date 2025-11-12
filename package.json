@@ -1,7 +1,7 @@
 {
   "name": "@iswangh/commitlint-config",
   "type": "module",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "基于 @commitlint/config-conventional 的 Commitlint 配置，提供默认值和覆盖支持",
   "author": "iswangh <https://gitee.com/iswangh>",
   "license": "Apache-2.0",
