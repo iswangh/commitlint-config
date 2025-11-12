@@ -15,11 +15,7 @@ import { COMMIT_TYPES, RULE_LEVEL } from '../constants'
 export const defaultRules: UserConfig['rules'] = {
   // ========== 提交类型规则 ==========
   /** 提交类型枚举 */
-  'type-enum': [
-    RULE_LEVEL.ERROR,
-    'always',
-    [...COMMIT_TYPES],
-  ],
+  'type-enum': [RULE_LEVEL.ERROR, 'always', [...COMMIT_TYPES]],
   /** 提交类型大小写 */
   'type-case': [RULE_LEVEL.ERROR, 'always', 'lowercase'],
   /** 提交类型不能为空 */
@@ -46,14 +42,8 @@ export const defaultRules: UserConfig['rules'] = {
   // ========== Footer 规则 ==========
   /** footer 前应有空行 */
   'footer-leading-blank': [RULE_LEVEL.WARNING, 'always'],
-}
 
-/**
- * 中文冒号检查规则
- *
- * 禁止在提交信息中使用中文冒号，强制使用英文冒号以符合 Conventional Commits 规范
- */
-export const chineseColonRule: UserConfig['rules'] = {
-  /** 禁止使用中文冒号（Conventional Commits 格式要求使用英文冒号） */
-  'no-chinese-colon': [RULE_LEVEL.ERROR, 'always'],
+  // ========== 自定义规则 ==========
+  /** 禁止在提交信息头部使用中文冒号（已禁用，规则实现通过插件提供，用户可按需启用） */
+  'no-chinese-colon': [RULE_LEVEL.DISABLED],
 }

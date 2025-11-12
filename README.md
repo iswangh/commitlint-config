@@ -149,8 +149,8 @@ export default iswangh({
   // 自定义规则
   rules: {
     'header-max-length': [2, 'always', 80],
-    // 如需关闭中文冒号检查，将规则级别设置为 0 即可禁用
-    // 'no-chinese-colon': [0],
+    // 如需启用中文冒号检查，将规则级别设置为 2（错误）或 1（警告）即可
+    // 'no-chinese-colon': [2, 'always'],
   },
   // 自定义继承的配置
   extends: '@commitlint/config-conventional',
@@ -203,11 +203,12 @@ export default iswangh({
 
 ### 自定义规则
 
-- `no-chinese-colon`: 禁止使用中文冒号（Conventional Commits 格式要求使用英文冒号 `:`）
-  - 默认启用，如需关闭可在自定义配置中将规则级别设置为 `0`：
+- `no-chinese-colon`: 禁止在提交信息头部（header）使用中文冒号（Conventional Commits 格式要求使用英文冒号 `:`）
+  - 只检查提交信息第一行（header），主体（body）中允许使用中文冒号
+  - **默认已禁用**，如需启用可在自定义配置中将规则级别设置为 `2`（错误）或 `1`（警告）：
     ```typescript
     rules: {
-      'no-chinese-colon': [0],
+      'no-chinese-colon': [2, 'always'], // 启用规则（错误级别）
     }
     ```
 

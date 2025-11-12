@@ -6,12 +6,7 @@
 
 import type { UserConfig } from '@commitlint/types'
 import type { CommitlintConfigOptions } from './types'
-import {
-  chineseColonRule,
-  defaultExtends,
-  defaultPlugins,
-  defaultRules,
-} from './configs'
+import { defaultExtends, defaultPlugins, defaultRules } from './configs'
 
 /**
  * 创建 Commitlint 配置
@@ -36,20 +31,29 @@ import {
 export function createConfig(
   options: CommitlintConfigOptions = {},
 ): UserConfig {
-  const {
-    extends: customExtends,
-    rules: customRules,
-    plugins: customPlugins,
-  } = options
+  const { extends: customExtends, rules: customRules, plugins: customPlugins } = options
+
+  // 合并 extends：如果用户传入了自定义 extends，则与默认 extends 合并
+  // commitlint 支持数组形式的 extends，可以同时继承多个配置
+  const extendsConfig = customExtends
+    ? Array.isArray(customExtends)
+      ? [defaultExtends, ...customExtends]
+      : [defaultExtends, customExtends]
+    : defaultExtends
+
+  // 合并 plugins：如果用户传入了自定义 plugins，则合并到默认 plugins 中
+  // 这样可以确保默认的 no-chinese-colon 规则插件可用（虽然规则默认已禁用）
+  const plugins = customPlugins
+    ? [...(defaultPlugins ?? []), ...customPlugins]
+    : defaultPlugins
 
   const config: UserConfig = {
-    extends: customExtends ?? defaultExtends,
+    extends: extendsConfig,
     rules: {
       ...defaultRules,
-      ...chineseColonRule,
       ...customRules,
     },
-    plugins: customPlugins ?? defaultPlugins,
+    plugins,
   }
 
   return config
