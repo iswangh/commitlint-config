@@ -9,6 +9,9 @@
     "type": "git",
     "url": "https://gitee.com/iswangh/commitlint-config.git"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "commitlint",
     "commitlint-config",
@@ -33,12 +36,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "type-check": "tsc --noEmit",
-    "check:branch": "node scripts/check-branch.js",
-    "prepublishOnly": "pnpm run lint && pnpm type-check",
-    "version": "git add -A",
-    "publish:patch": "pnpm run check:branch && pnpm version patch && pnpm publish",
-    "publish:minor": "pnpm run check:branch && pnpm version minor && pnpm publish",
-    "publish:major": "pnpm run check:branch && pnpm version major && pnpm publish"
+    "release": "cross-env CI=true semantic-release",
+    "release:dry-run": "semantic-release --dry-run"
   },
   "peerDependencies": {
     "@commitlint/config-conventional": "^20.0.0"
@@ -50,15 +49,16 @@
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
     "@commitlint/types": "^20.0.0",
-    "@iswangh/eslint-config": "^0.1.5",
+    "@iswangh/eslint-config": "^0.2.1",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "cross-env": "^10.1.0",
     "eslint": "^9.39.1",
     "eslint-plugin-format": "^1.0.2",
     "husky": "^9.1.7",
-    "lint-staged": "^15.2.11",
-    "typescript": "^5.9.2"
-  },
-  "publishConfig": {
-    "access": "public"
+    "lint-staged": "^15.5.2",
+    "semantic-release": "^25.0.2",
+    "typescript": "^5.9.3"
   },
   "volta": {
     "node": "25.1.0"

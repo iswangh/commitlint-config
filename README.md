@@ -33,10 +33,13 @@
 
 - **@commitlint/config-conventional**: `^20.0.0` - 开发时使用的基础配置
 - **@commitlint/types**: `^20.0.0` - Commitlint 类型定义
-- **@iswangh/eslint-config**: `^0.1.5` - ESLint 配置
+- **@iswangh/eslint-config**: `^0.2.1` - ESLint 配置
+- **@semantic-release/changelog**: `^6.0.3` - 自动生成 CHANGELOG
+- **@semantic-release/git**: `^10.0.1` - 自动提交版本变更
 - **husky**: `^9.1.7` - Git Hooks 管理工具
-- **lint-staged**: `^15.2.11` - 对暂存区文件执行 lint 任务
-- **TypeScript**: `^5.9.2` - TypeScript 编译器
+- **lint-staged**: `^15.5.2` - 对暂存区文件执行 lint 任务
+- **semantic-release**: `^25.0.2` - 自动化版本管理和发布
+- **TypeScript**: `^5.9.3` - TypeScript 编译器
 
 ## 目录结构
 
@@ -62,6 +65,10 @@ commitlint-config/
 │   │   └── index.ts      # 类型模块聚合导出
 │   ├── createConfig.ts   # 创建配置函数
 │   └── index.ts          # src 模块聚合导出
+├── scripts/              # 脚本目录
+│   ├── index.js          # 脚本模块聚合导出
+│   └── semantic-release-verify.js # semantic-release 验证插件
+├── .releaserc.js         # semantic-release 配置文件
 ├── commitlint.config.js  # Commitlint 配置文件
 ├── eslint.config.js      # ESLint 配置文件
 ├── lint-staged.config.js # Lint-Staged 配置文件
@@ -314,6 +321,5 @@ echo "📝 提交信息: $(git log -1 --oneline)"
 ## 项目信息
 
 - **许可证**：Apache-2.0
-- **版本**：0.1.0
 - **主仓库**：[Gitee](https://gitee.com/iswangh/commitlint-config.git)
 - **镜像仓库**：[GitHub](https://github.com/iswangh/commitlint-config.git)（通过 Gitee 镜像仓库功能自动同步）
