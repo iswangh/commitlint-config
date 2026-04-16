@@ -23,23 +23,28 @@
 
 ### 运行时依赖
 
-- **jiti**: `^2.6.1` - TypeScript 模块动态加载器，用于支持从 JavaScript 配置文件导入 TypeScript 模块
+- **jiti** - TypeScript 模块动态加载器，用于支持从 JavaScript 配置文件导入 TypeScript 模块
 
 ### 对等依赖
 
-- **@commitlint/config-conventional**: `^20.0.0` - 基础 Commitlint 配置
+- **@commitlint/config-conventional** - 基础 Commitlint 配置
 
 ### 开发依赖
 
-- **@commitlint/config-conventional**: `^20.0.0` - 开发时使用的基础配置
-- **@commitlint/types**: `^20.0.0` - Commitlint 类型定义
-- **@iswangh/eslint-config**: `^0.2.1` - ESLint 配置
-- **@semantic-release/changelog**: `^6.0.3` - 自动生成 CHANGELOG
-- **@semantic-release/git**: `^10.0.1` - 自动提交版本变更
-- **husky**: `^9.1.7` - Git Hooks 管理工具
-- **lint-staged**: `^15.5.2` - 对暂存区文件执行 lint 任务
-- **semantic-release**: `^25.0.2` - 自动化版本管理和发布
-- **TypeScript**: `^5.9.3` - TypeScript 编译器
+- **@commitlint/config-conventional** - 开发时使用的基础配置
+- **@commitlint/types** - Commitlint 类型定义
+- **@iswangh/eslint-config** - ESLint 配置
+- **@semantic-release/changelog** - 自动生成 CHANGELOG
+- **@semantic-release/git** - 自动提交版本变更
+- **husky** - Git Hooks 管理工具
+- **lint-staged** - 对暂存区文件执行 lint 任务
+- **semantic-release** - 自动化版本管理和发布
+- **TypeScript** - TypeScript 编译器
+
+### 工具链
+
+- **@antfu/ni** - 统一包管理器命令，按当前项目自动选择底层包管理器（`ni`、`nr`、`nup` 等）
+- **Volta** - 锁定并管理 Node.js 工具链，保证团队与 CI 的运行环境一致
 
 ## 目录结构
 
@@ -82,7 +87,7 @@ commitlint-config/
 
 ### 环境要求
 
-- Node.js >= 25.1.0（推荐使用 Volta 管理 Node.js 版本，项目已配置 Volta）
+- Node.js LTS（推荐使用 Volta 管理 Node.js 版本，项目已配置 Volta）
 - 支持 ESM 的包管理器（pnpm、npm、yarn）
 
 ### 安装
