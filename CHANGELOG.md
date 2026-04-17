@@ -1,3 +1,10 @@
+# [0.4.0](https://gitee.com/iswangh/commitlint-config/compare/v0.3.0...v0.4.0) (2026-04-17)
+
+
+### Features
+
+* **rules:** 放宽 header 长度并将 body/footer 空行规则提升为错误 ([59e16c2](https://gitee.com/iswangh/commitlint-config/commit/59e16c250a3eca03703b204792ce9dbd4c912c86))
+
 # [0.3.0](https://gitee.com/iswangh/commitlint-config/compare/v0.2.0...v0.3.0) (2026-04-16)
 
 
