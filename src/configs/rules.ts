@@ -33,15 +33,15 @@ export const defaultRules: UserConfig['rules'] = {
 
   // ========== 头部规则 ==========
   /** 提交信息最大长度 */
-  'header-max-length': [RULE_LEVEL.ERROR, 'always', 100],
+  'header-max-length': [RULE_LEVEL.ERROR, 'always', 150],
 
   // ========== Body 规则 ==========
   /** body 前应有空行 */
-  'body-leading-blank': [RULE_LEVEL.WARNING, 'always'],
+  'body-leading-blank': [RULE_LEVEL.ERROR, 'always'],
 
   // ========== Footer 规则 ==========
   /** footer 前应有空行 */
-  'footer-leading-blank': [RULE_LEVEL.WARNING, 'always'],
+  'footer-leading-blank': [RULE_LEVEL.ERROR, 'always'],
 
   // ========== 自定义规则 ==========
   /** 禁止在提交信息头部使用中文冒号（已禁用，规则实现通过插件提供，用户可按需启用） */
